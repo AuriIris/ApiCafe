@@ -1,0 +1,59 @@
+{
+  "version": 2,
+  "dgSpecHash": "HS46muW7e9DPReKEK5w0vgENgrdU6ndmsLTS6KVTSHur/+6VZluBYQHreK7RYje/3nif6SFFx/Q7RCeEM02bYQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\aurio\\OneDrive\\Escritorio\\Laboratorio3\\ApiCafe\\api.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\aurio\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\7.0.5\\microsoft.aspnetcore.authentication.jwtbearer.7.0.5.nupkg.sha512",
+    "C:\\Users\\aurio\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.5\\microsoft.aspnetcore.openapi.7.0.5.nupkg.sha512",
+    "C:\\Users\\aurio\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\aurio\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.5\\microsoft.entityframeworkcore.7.0.5.nupkg.sha512",
+    "C:\\Users\\aurio\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.5\\microsoft.entityframeworkcore.abstractions.7.0.5.nupkg.sha512",
+    "C:\\Users\\aurio\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\7.0.5\\microsoft.entityframeworkcore.analyzers.7.0.5.nupkg.sha512",
+    "C:\\Users\\aurio\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\7.0.2\\microsoft.entityframeworkcore.relational.7.0.2.nupkg.sha512",
+    "C:\\Users\\aurio\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "C:\\Users\\aurio\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\7.0.0\\microsoft.extensions.caching.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\aurio\\.nuget\\packages\\microsoft.extensions.caching.memory\\7.0.0\\microsoft.extensions.caching.memory.7.0.0.nupkg.sha512",
+    "C:\\Users\\aurio\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\7.0.0\\microsoft.extensions.configuration.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\aurio\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\7.0.0\\microsoft.extensions.dependencyinjection.7.0.0.nupkg.sha512",
+    "C:\\Users\\aurio\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\aurio\\.nuget\\packages\\microsoft.extensions.logging\\7.0.0\\microsoft.extensions.logging.7.0.0.nupkg.sha512",
+    "C:\\Users\\aurio\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.0\\microsoft.extensions.logging.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\aurio\\.nuget\\packages\\microsoft.extensions.options\\7.0.0\\microsoft.extensions.options.7.0.0.nupkg.sha512",
+    "C:\\Users\\aurio\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512",
+    "C:\\Users\\aurio\\.nuget\\packages\\microsoft.identitymodel.abstractions\\6.30.0\\microsoft.identitymodel.abstractions.6.30.0.nupkg.sha512",
+    "C:\\Users\\aurio\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\6.30.0\\microsoft.identitymodel.jsonwebtokens.6.30.0.nupkg.sha512",
+    "C:\\Users\\aurio\\.nuget\\packages\\microsoft.identitymodel.logging\\6.30.0\\microsoft.identitymodel.logging.6.30.0.nupkg.sha512",
+    "C:\\Users\\aurio\\.nuget\\packages\\microsoft.identitymodel.protocols\\6.15.1\\microsoft.identitymodel.protocols.6.15.1.nupkg.sha512",
+    "C:\\Users\\aurio\\.nuget\\packages\\microsoft.identitymodel.protocols.openidconnect\\6.15.1\\microsoft.identitymodel.protocols.openidconnect.6.15.1.nupkg.sha512",
+    "C:\\Users\\aurio\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.30.0\\microsoft.identitymodel.tokens.6.30.0.nupkg.sha512",
+    "C:\\Users\\aurio\\.nuget\\packages\\microsoft.identitymodel.tokens.jwt\\0.1.0\\microsoft.identitymodel.tokens.jwt.0.1.0.nupkg.sha512",
+    "C:\\Users\\aurio\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\aurio\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
+    "C:\\Users\\aurio\\.nuget\\packages\\microsoft.openapi\\1.4.3\\microsoft.openapi.1.4.3.nupkg.sha512",
+    "C:\\Users\\aurio\\.nuget\\packages\\mysqlconnector\\2.2.5\\mysqlconnector.2.2.5.nupkg.sha512",
+    "C:\\Users\\aurio\\.nuget\\packages\\pomelo.entityframeworkcore.mysql\\7.0.0\\pomelo.entityframeworkcore.mysql.7.0.0.nupkg.sha512",
+    "C:\\Users\\aurio\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
+    "C:\\Users\\aurio\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.4.0\\swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
+    "C:\\Users\\aurio\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.4.0\\swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",
+    "C:\\Users\\aurio\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.4.0\\swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512",
+    "C:\\Users\\aurio\\.nuget\\packages\\system.identitymodel.tokens.jwt\\6.30.0\\system.identitymodel.tokens.jwt.6.30.0.nupkg.sha512",
+    "C:\\Users\\aurio\\.nuget\\packages\\system.runtime\\4.3.0\\system.runtime.4.3.0.nupkg.sha512",
+    "C:\\Users\\aurio\\.nuget\\packages\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512",
+    "C:\\Users\\aurio\\.nuget\\packages\\system.text.encoding\\4.3.0\\system.text.encoding.4.3.0.nupkg.sha512",
+    "C:\\Users\\aurio\\.nuget\\packages\\system.text.encodings.web\\4.7.2\\system.text.encodings.web.4.7.2.nupkg.sha512",
+    "C:\\Users\\aurio\\.nuget\\packages\\system.text.json\\4.7.2\\system.text.json.4.7.2.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "El paquete \"Microsoft.IdentityModel.Tokens.JWT 0.1.0\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\" en lugar de la plataforma de destino del proyecto \"net7.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
+      "libraryId": "Microsoft.IdentityModel.Tokens.JWT",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    }
+  ]
+}
