@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "HS46muW7e9DPReKEK5w0vgENgrdU6ndmsLTS6KVTSHur/+6VZluBYQHreK7RYje/3nif6SFFx/Q7RCeEM02bYQ==",
+  "dgSpecHash": "dmSnDT4rmhCP8tMgwGWU8mf3jG6DPD/NFnoGXmTqBGYG595pPaM+9p+KuS3D3qZqmeql5jg7O0kovd954bXbmA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\aurio\\OneDrive\\Escritorio\\Laboratorio3\\ApiCafe\\api.csproj",
+  "projectFilePath": "C:\\Users\\aurio\\OneDrive\\Escritorio\\Laboratorio3\\projectsClonados\\ApiCafe\\api.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\aurio\\.nuget\\packages\\google.apis\\1.60.0\\google.apis.1.60.0.nupkg.sha512",
+    "C:\\Users\\aurio\\.nuget\\packages\\google.apis.auth\\1.60.0\\google.apis.auth.1.60.0.nupkg.sha512",
+    "C:\\Users\\aurio\\.nuget\\packages\\google.apis.core\\1.60.0\\google.apis.core.1.60.0.nupkg.sha512",
     "C:\\Users\\aurio\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\7.0.5\\microsoft.aspnetcore.authentication.jwtbearer.7.0.5.nupkg.sha512",
     "C:\\Users\\aurio\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.5\\microsoft.aspnetcore.openapi.7.0.5.nupkg.sha512",
     "C:\\Users\\aurio\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
@@ -32,6 +35,7 @@
     "C:\\Users\\aurio\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\aurio\\.nuget\\packages\\microsoft.openapi\\1.4.3\\microsoft.openapi.1.4.3.nupkg.sha512",
     "C:\\Users\\aurio\\.nuget\\packages\\mysqlconnector\\2.2.5\\mysqlconnector.2.2.5.nupkg.sha512",
+    "C:\\Users\\aurio\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512",
     "C:\\Users\\aurio\\.nuget\\packages\\pomelo.entityframeworkcore.mysql\\7.0.0\\pomelo.entityframeworkcore.mysql.7.0.0.nupkg.sha512",
     "C:\\Users\\aurio\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
     "C:\\Users\\aurio\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.4.0\\swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",

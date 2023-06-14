@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\aurio\\OneDrive\\Escritorio\\Laboratorio3\\ApiCafe\\api.csproj": {}
+    "C:\\Users\\aurio\\OneDrive\\Escritorio\\Laboratorio3\\projectsClonados\\ApiCafe\\api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\aurio\\OneDrive\\Escritorio\\Laboratorio3\\ApiCafe\\api.csproj": {
+    "C:\\Users\\aurio\\OneDrive\\Escritorio\\Laboratorio3\\projectsClonados\\ApiCafe\\api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\aurio\\OneDrive\\Escritorio\\Laboratorio3\\ApiCafe\\api.csproj",
+        "projectUniqueName": "C:\\Users\\aurio\\OneDrive\\Escritorio\\Laboratorio3\\projectsClonados\\ApiCafe\\api.csproj",
         "projectName": "api",
-        "projectPath": "C:\\Users\\aurio\\OneDrive\\Escritorio\\Laboratorio3\\ApiCafe\\api.csproj",
+        "projectPath": "C:\\Users\\aurio\\OneDrive\\Escritorio\\Laboratorio3\\projectsClonados\\ApiCafe\\api.csproj",
         "packagesPath": "C:\\Users\\aurio\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\aurio\\OneDrive\\Escritorio\\Laboratorio3\\ApiCafe\\obj\\",
+        "outputPath": "C:\\Users\\aurio\\OneDrive\\Escritorio\\Laboratorio3\\projectsClonados\\ApiCafe\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\aurio\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,10 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "Google.Apis.Auth": {
+              "target": "Package",
+              "version": "[1.60.0, )"
+            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[7.0.5, )"

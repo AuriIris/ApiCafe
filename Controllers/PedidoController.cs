@@ -28,47 +28,62 @@ public class PedidoController : ControllerBase
     }
 
 
-    [HttpGet]
-    [Authorize]
-    public IActionResult GetPedidos()
+
+ [HttpGet]
+[Authorize]
+public IActionResult GetPedidos()
+{
+    var usuario = User.Identity.Name;
+    var fechaActual = DateTime.Now;
+    var fechaLimite = fechaActual.AddHours(-24);
+    var fechaActual1=fechaActual.ToString().Replace("/","-");
+    var fechaLimite1=fechaLimite.ToString().Replace("/","-");
+    Console.WriteLine("Pedido: " + fechaActual1);
+    Console.WriteLine("Pedido: " + fechaLimite1);
+
+    var pedidos = _context.Pedido
+        .Join(
+            _context.Mesa,
+            pedido => pedido.MesaId,
+            mesa => mesa.Id,
+            (pedido, mesa) => new { Pedido = pedido, Mesa = mesa }
+        )
+        .Join(
+            _context.Usuario,
+            pedidoMesa => pedidoMesa.Pedido.UsuarioId,
+            usuario => usuario.Id,
+            (pedidoMesa, usuario) => new PedidoView
+            {
+                Id = pedidoMesa.Pedido.Id,
+                MesaId = pedidoMesa.Pedido.MesaId,
+                UsuarioId = pedidoMesa.Pedido.UsuarioId,
+                Estado = pedidoMesa.Pedido.Estado,
+                PrecioTotal = pedidoMesa.Pedido.PrecioTotal,
+                Fecha = pedidoMesa.Pedido.Fecha,
+                Mesa = pedidoMesa.Mesa,
+                Usuario = usuario,
+            }
+        ).ToList();
+
+        Console.WriteLine(pedidos.Count);
+    pedidos = pedidos.Where(pedidoView => pedidoView.Usuario.Mail == usuario &&
+        pedidoView.Estado != 3 &&
+        DateTime.ParseExact(pedidoView.Fecha, "dd-MM-yyyy HH:mm:ss", CultureInfo.InvariantCulture) >= fechaLimite &&
+        DateTime.ParseExact(pedidoView.Fecha, "dd-MM-yyyy HH:mm:ss", CultureInfo.InvariantCulture) <= fechaActual)
+        .ToList();
+
+
+     Console.WriteLine(pedidos.ToString);
+    if (pedidos == null)
     {
-        // Obtener el nombre de usuario del usuario logueado
-        var usuario = User.Identity.Name;
-
-        // Filtrar los pedidos por el usuario logueado
-        var pedidos = _context.Pedido
-            .Join(_context.Mesa,
-                pedido => pedido.MesaId,
-                mesa => mesa.Id,
-                (pedido, mesa) => new { Pedido = pedido, Mesa = mesa })
-            .Join(_context.Usuario,
-                pedidoMesa => pedidoMesa.Pedido.UsuarioId,
-                usuario => usuario.Id,
-                (pedidoMesa, usuario) => new PedidoView
-                {
-                    Id=pedidoMesa.Pedido.Id,
-                    MesaId=pedidoMesa.Pedido.MesaId,
-                    UsuarioId=pedidoMesa.Pedido.UsuarioId,
-                    Estado=pedidoMesa.Pedido.Estado,
-                    PrecioTotal=pedidoMesa.Pedido.PrecioTotal,
-                    Fecha=pedidoMesa.Pedido.Fecha,
-                    Mesa = pedidoMesa.Mesa,
-                    Usuario = usuario,
-                })
-            .Where(pedidoView => pedidoView.Usuario.Mail == usuario)  // Filtrar por el email del usuario logueado
-            .ToList();
-
-        if (pedidos == null || pedidos.Count == 0)
-        {
-            return NotFound();
-        }
-
-        return Ok(pedidos);
+        return NotFound();
     }
 
+    return Ok(pedidos);
+}
 
 
-    [HttpGet("{id}")]
+[HttpGet("{id}")]
     public IActionResult GetPedido(int id)
     {
         var pedidos = _context.Pedido.Find(id);
@@ -126,7 +141,7 @@ public class PedidoController : ControllerBase
 
         return Ok(pedido);
     }
-  
+
 [HttpGet("Cierre/{fechas}")]
 public IActionResult GetCierre(string fechas)
 {
@@ -193,10 +208,10 @@ public IActionResult GetCierre(string fechas)
 }
 
 
-
-
-
-
-
 }
+
+
+
+
+
 

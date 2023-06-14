@@ -77,18 +77,22 @@ public class ProductoController : ControllerBase
 
             return Ok(producto);
     }
- [HttpGet("Pedido/{id}")]
-public IActionResult obtenerProductosDePedido(int id)
+[HttpGet("Pedido/{id}")]
+public IActionResult ObtenerProductosDePedido(int id)
 {
-    // Buscar los detalles de pedido que tengan el mismo ID de pedido
-    var detallesPedido = _context.DetallePedido
-        .Where(dp => dp.PedidoId == id)
-        .ToList();
+    // Buscar el pedido por su ID
+    var pedido = _context.Pedido
+        .FirstOrDefault(p => p.Id == id);
 
-    if (detallesPedido.Count == 0)
+    if (pedido == null)
     {
         return NotFound();
     }
+
+    // Obtener los detalles de pedido asociados al pedido
+    var detallesPedido = _context.DetallePedido
+        .Where(dp => dp.PedidoId == id)
+        .ToList();
 
     // Obtener los IDs de los productos de los detalles de pedido
     var idProductos = detallesPedido
@@ -104,10 +108,13 @@ public IActionResult obtenerProductosDePedido(int id)
     foreach (var detalle in detallesPedido)
     {
         detalle.producto = productos.FirstOrDefault(p => p.Id == detalle.ProductoId);
+        detalle.pedido=pedido;
     }
 
+    // Retornar los detalles de pedido con los productos asociados
     return Ok(detallesPedido);
 }
+
 
 
 
