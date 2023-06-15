@@ -99,7 +99,12 @@ public IActionResult GetPedidos()
     [HttpPut("{id}")]
     public IActionResult ActualizarPedido(int id, [FromBody] Pedido nuevoPedido)
     {
-
+        
+        var mesa = _context.Mesa.FirstOrDefault(m => m.Id == nuevoPedido.MesaId);
+        if (mesa == null)
+        {
+            return NotFound();
+        }
         var mail = User.Identity.Name;
 
         var usuario = _context.Usuario.FirstOrDefault(x => x.Mail == mail);
@@ -108,6 +113,12 @@ public IActionResult GetPedidos()
         {   
             Console.WriteLine(nuevoPedido.Fecha);
             nuevoPedido.UsuarioId = usuario.Id;
+            if(nuevoPedido.Estado!=3){
+                mesa.Estado = 0;
+            }
+            else{
+                mesa.Estado = 1;
+            }
             _context.Pedido.Add(nuevoPedido);
             _context.SaveChanges();
 
@@ -120,21 +131,25 @@ public IActionResult GetPedidos()
         {
             return NotFound();
         }
-        var mesa = _context.Mesa.FirstOrDefault(m => m.Id == pedido.MesaId);
-        if (mesa == null)
-        {
-            return NotFound();
-        }
+        
 
         // Actualizar los datos del producto existente
         pedido.MesaId = nuevoPedido.MesaId;
         pedido.UsuarioId = usuario.Id;
         pedido.Estado = nuevoPedido.Estado;
+        Console.WriteLine("Estado del pedido: "+pedido.Estado);
+        if(pedido.Estado!=3){
+             mesa.Estado = 0;
+        }
+        else{
+             mesa.Estado = 1;
+        }
         pedido.PrecioTotal = nuevoPedido.PrecioTotal;
         Console.WriteLine(nuevoPedido.Fecha);
         pedido.Fecha = nuevoPedido.Fecha;
-        mesa.Estado = 1;
-
+       
+        Console.WriteLine("Mesa id: "+mesa.Id);//imprime Mesa estado1 por que no guarda ese valor?
+        Console.WriteLine("Mesa Estado: "+mesa.Estado);
         _context.Update(pedido);
         _context.Update(mesa);
         _context.SaveChanges();
@@ -205,6 +220,68 @@ public IActionResult GetCierre(string fechas)
     string totalPedidosString = totalPedidos.ToString();
     Console.WriteLine(totalPedidosString);
     return Ok("$"+totalPedidosString);
+}
+[HttpGet("CierrePedidos/{fechas}")]
+public IActionResult GetPedidosCierre(string fechas)
+{
+    fechas = fechas.Replace("%2F", "-");
+    Console.WriteLine(fechas);
+    string[] componentes = fechas.Split(' ');
+
+    string fechaDesde = componentes[0];
+    string horaDesde = componentes[1] + ":00";
+    string fechaHasta = componentes[2];
+    string horaHasta = componentes[3] + ":00";
+
+    Console.WriteLine("SEGUNDO: " + fechaDesde + horaDesde + fechaDesde + fechaHasta);//SEGUNDO: 04-06-202322:32:0004-06-202309-06-2023
+
+    DateTime fechaDesdeHoraDesde = DateTime.ParseExact(fechaDesde + " " + horaDesde, "dd-MM-yyyy HH:mm:ss", CultureInfo.InvariantCulture);
+    DateTime fechaHastaHoraHasta = DateTime.ParseExact(fechaHasta + " " + horaHasta, "dd-MM-yyyy HH:mm:ss", CultureInfo.InvariantCulture);
+    
+    Console.WriteLine(fechaDesdeHoraDesde.ToString("dd-MM-yyyy HH:mm:ss"));
+    Console.WriteLine(fechaHastaHoraHasta.ToString("dd-MM-yyyy HH:mm:ss"));
+
+
+    
+
+    var usuario = User.Identity.Name;
+
+    // Filtrar los pedidos por el usuario logueado y el rango de fechas
+    var pedidos = _context.Pedido
+        .Join(_context.Mesa,
+            pedido => pedido.MesaId,
+            mesa => mesa.Id,
+            (pedido, mesa) => new { Pedido = pedido, Mesa = mesa })
+        .Join(_context.Usuario,
+            pedidoMesa => pedidoMesa.Pedido.UsuarioId,
+            usuario => usuario.Id,
+            (pedidoMesa, usuario) => new PedidoView
+            {
+                Id = pedidoMesa.Pedido.Id,
+                MesaId = pedidoMesa.Pedido.MesaId,
+                UsuarioId = pedidoMesa.Pedido.UsuarioId,
+                Estado = pedidoMesa.Pedido.Estado,
+                PrecioTotal = pedidoMesa.Pedido.PrecioTotal,
+                Fecha = pedidoMesa.Pedido.Fecha,
+                Mesa = pedidoMesa.Mesa,
+                Usuario = usuario,
+            })
+        .ToList();
+
+    Console.WriteLine(pedidos.Count);
+        var pedidosFiltrados = pedidos.Where(pedidoView => pedidoView.Usuario.Mail == usuario &&
+        DateTime.ParseExact(pedidoView.Fecha, "dd-MM-yyyy HH:mm:ss", CultureInfo.InvariantCulture) >= fechaDesdeHoraDesde &&
+        DateTime.ParseExact(pedidoView.Fecha, "dd-MM-yyyy HH:mm:ss", CultureInfo.InvariantCulture) <= fechaHastaHoraHasta)
+        .ToList();
+
+    Console.WriteLine(pedidosFiltrados.Count);
+    if (pedidosFiltrados == null)
+    {
+        return NotFound();
+    }
+
+   
+    return Ok(pedidosFiltrados);
 }
 
 
